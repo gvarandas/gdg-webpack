@@ -5,7 +5,7 @@ import './styles.css';
 
 console.log('Index module loaded');
 
-const nav = makeNav('Nav Title');
+const nav = makeNav('Nav Title Novo');
 const button = makeButton('Button 1');
 document.body.appendChild(nav);
 document.body.appendChild(button);
