@@ -1,11 +1,16 @@
-import makeButton from './button';
-import makeNav from './nav';
+import React from 'react';
+import { render } from 'react-dom';
+
+import Nav from './nav';
+import Button from './button';
 
 import './styles.css';
 
-console.log('Index module loaded');
+const Index = () => (
+  <React.Fragment>
+    <Nav title="NavTitle" />
+    <Button buttonName="Confirmar" />
+  </React.Fragment>
+);
 
-const nav = makeNav('Nav Title Novo');
-const button = makeButton('Button 1');
-document.body.appendChild(nav);
-document.body.appendChild(button);
+render(<Index />, document.body);

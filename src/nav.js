@@ -1,9 +1,9 @@
-const makeNav = (navTitle) => {
-  const nav = document.createElement('nav');
-  const title = document.createElement('h1');
-  title.innerText = navTitle;
-  nav.appendChild(title);
-  return nav;
-};
+import React from 'react';
 
-export default makeNav;
+const Nav = ({ title }) => (
+  <nav>
+    <h1>{title}</h1>
+  </nav>
+);
+
+export default Nav;
