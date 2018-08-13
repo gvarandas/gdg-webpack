@@ -5,8 +5,7 @@ module.exports = ({ mode } = { mode: 'development' }) => {
   return {
     mode,
     entry: {
-      page1: './src/Page1.js',
-      page2: './src/Page2.js',
+      index: './src/index.js',
     },
     output: {
       filename: '[name].bundle.js',
@@ -29,7 +28,7 @@ module.exports = ({ mode } = { mode: 'development' }) => {
     },
     optimization: {
       splitChunks: {
-        minSize: 500, // 500B
+        minSize: 100, // 100B
         chunks: 'all',
         cacheGroups: {
           commons: {

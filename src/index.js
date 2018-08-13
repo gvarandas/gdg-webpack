@@ -1,19 +1,19 @@
 import React, { Fragment } from 'react';
 import { render } from 'react-dom';
 
-import Nav from './nav';
-import UpperContainer from './UpperContainer';
-import BottomContainer from './BottomContainer';
-
+// Static imports
 import './styles.css';
+import Nav from './nav';
+
+// Dynamic imports
+import('./Page1');
+import('./Page2');
 
 console.log('Index module loaded');
 
 const Index = () => (
   <Fragment>
     <Nav title="NavTitle" />
-    <UpperContainer />
-    <BottomContainer />
   </Fragment>
 );
 
