@@ -1,5 +1,7 @@
 import React from 'react';
 
+console.log('Button module loaded');
+
 /**
  * 
  * @param {string} buttonName

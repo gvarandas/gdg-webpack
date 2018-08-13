@@ -2,11 +2,14 @@ const { ProgressPlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = ({ mode } = { mode: 'development' }) => {
-  console.log('mode', mode);
   return {
     mode,
+    entry: {
+      page1: './src/Page1.js',
+      page2: './src/Page2.js',
+    },
     output: {
-      filename: 'builtwithlove.js',
+      filename: '[name].bundle.js',
     },
     module: {
       rules: [
@@ -24,9 +27,32 @@ module.exports = ({ mode } = { mode: 'development' }) => {
         },
       ],
     },
+    optimization: {
+      splitChunks: {
+        minSize: 500, // 500B
+        chunks: 'all',
+        cacheGroups: {
+          commons: {
+            name: 'commons',
+            chunks: 'initial',
+            minChunks: 2,
+            priority: 1,
+          },
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendor',
+            chunks: 'all',
+            priority: 10,
+          },
+        },
+      }
+    },
     plugins: [
       new ProgressPlugin(),
-      new HtmlWebpackPlugin({ title: 'GDG 🤖' }),
+      new HtmlWebpackPlugin({
+        title: 'GDG 🤖',
+        template: 'public/index.html',
+      }),
     ],
   };
 };

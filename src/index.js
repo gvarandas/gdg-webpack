@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { render } from 'react-dom';
 
 import Nav from './nav';
-import Button from './button';
+import UpperContainer from './UpperContainer';
+import BottomContainer from './BottomContainer';
 
 import './styles.css';
 
+console.log('Index module loaded');
+
 const Index = () => (
-  <React.Fragment>
+  <Fragment>
     <Nav title="NavTitle" />
-    <Button buttonName="Confirmar" />
-  </React.Fragment>
+    <UpperContainer />
+    <BottomContainer />
+  </Fragment>
 );
 
-render(<Index />, document.body);
+render(<Index />, document.getElementById('root'));
